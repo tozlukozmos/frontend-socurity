@@ -77,7 +77,7 @@ onMounted(() => {
                 otherProfilePageNoOtherUser.value = false;
                 otherProfilePageProfileCardLoading.value = false;
                 for (let index = 0; index < OTHER_USER.value.followers.length; index++) {
-                    if(OTHER_USER.value.followers[index].userId === CURRENT_USER._id){
+                    if(OTHER_USER.value.followers[index].userId._id === CURRENT_USER._id){
                         isCurrentUserFollowOtherUser.value = true;
                     }
                 };

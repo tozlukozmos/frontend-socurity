@@ -1,8 +1,10 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, inject } from 'vue';
 import { useStore } from 'vuex';
 const store = useStore();
+const axios = inject("Axios");
 const CURRENT_USER = store.state.User;
+const CURRENT_USER_FOLLOWERS = ref();
 
 const followersPageUsers = ref([]);
 const followersPageLoading = ref(true);
@@ -11,12 +13,26 @@ const followersPageUsersMainSection = ref(false);
 
 onMounted(() => {
     document.title = "Followers | Socurity";
-    setTimeout(() => {
-        followersPageLoading.value = false,
-        followersPageUsers.value = CURRENT_USER.followers,
-        followersPageUsers.value.length === 0 ? followersPageInfoAlert.value = true : followersPageInfoAlert.value = false,
-        followersPageUsersMainSection.value = true
-    }, 300);
+    // setTimeout(() => {
+    //     followersPageLoading.value = false,
+    //     followersPageUsers.value = CURRENT_USER.followers,
+    //     followersPageUsers.value.length === 0 ? followersPageInfoAlert.value = true : followersPageInfoAlert.value = false,
+    //     followersPageUsersMainSection.value = true
+    // }, 300);
+    axios.get("/users/")
+    .then(response_FollowersPageUsers => {
+        response_FollowersPageUsers.data.forEach(response_FollowersPageUser => {
+            if(response_FollowersPageUser._id === CURRENT_USER._id){
+                CURRENT_USER_FOLLOWERS.value = response_FollowersPageUser.followers;
+                console.log(response_FollowersPageUser.followers);
+                followersPageLoading.value = false,
+                followersPageUsers.value = response_FollowersPageUser.followers,
+                followersPageUsers.value.length === 0 ? followersPageInfoAlert.value = true : followersPageInfoAlert.value = false,
+                followersPageUsersMainSection.value = true
+            }
+        });
+    })
+    .catch(() => {console.error})
 })
 </script>
 

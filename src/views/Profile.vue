@@ -6,6 +6,7 @@ const axios = inject("Axios");
 const store = useStore();
 const router = useRouter();
 const CURRENT_USER = store.state.User;
+const CURRENT_USER_FOLLOWERS = ref();
 
 const profilePageYourMindSectionPosts = ref([]);
 const profilePageYourMindSectionLoading = ref(true);
@@ -51,6 +52,15 @@ onMounted(() => {
             console.error
         })
     }, 300);
+    axios.get("/users/")
+    .then(response_ProfilePageUsers => {
+        response_ProfilePageUsers.data.forEach(response_ProfilePageUser => {
+            if(response_ProfilePageUser._id === CURRENT_USER._id){
+                CURRENT_USER_FOLLOWERS.value = response_ProfilePageUser.followers;
+            }
+        });
+    })
+    .catch(() => {console.error})
 })
 </script>
 
@@ -107,7 +117,7 @@ onMounted(() => {
                 </div>
                 <div class="following-system-box">
                     <router-link to="/profile/following">{{CURRENT_USER.following.length}} following</router-link>
-                    <router-link to="/profile/followers">{{CURRENT_USER.followers.length}} followers</router-link>
+                    <router-link to="/profile/followers">{{CURRENT_USER_FOLLOWERS?.length || CURRENT_USER.followers.length}} followers</router-link>
                 </div>
             </div>
             <nav class="action-navbar">
