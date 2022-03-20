@@ -184,6 +184,7 @@ onMounted(() => {
     word-spacing: 2px;
     line-height: 18px;
     color: var(--light);
+    white-space: pre-line;
 }
 .post-content-text > a{
     text-decoration: none;
