@@ -20,16 +20,15 @@ onMounted(() => {
                 }
             });
             notificationsPageLoading.value = false,
-            response_notificationsPageNotifications.data.length === 0 ? notificationsPageInfoAlert.value = true : notificationsPageInfoAlert.value = false
+            notificationsPageNotifications.value.length === 0 ? notificationsPageInfoAlert.value = true : notificationsPageInfoAlert.value = false
             setTimeout(() => {
                 axios.patch("/notifications", {notifications: notificationsPageNotifications.value})
-                .then(() => {})
-                .catch(() => {console.error})
-            }, 1000);
+                .catch((err) => {console.error(err)})
+            }, 300);
         })
-        .catch(() => {
+        .catch((err) => {
             notificationsPageLoading.value = false, 
-            console.error
+            console.error(err);
         })
     }, 300);
 });
