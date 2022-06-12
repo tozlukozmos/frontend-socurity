@@ -126,7 +126,7 @@ onMounted(() => {
             <div class="delete-post-modal-buttons">
                 <button @click="DeletePost(post._id)" class="delete-post-modal-button-yes">
                     <!-- loading -->
-                    <AppLoading class="loading-button" v-if="loadingButton" color="#F8F1E7" backgroundColor="#ff4444"/>
+                    <AppLoading class="loading-button" v-if="loadingButton" color="#F8F1E7" backgroundColor="#AF2525"/>
                     Yes, delete my post.
                 </button>
                 <button @click="hideDeleteModal" class="delete-post-modal-button-no">No, turn back!</button>

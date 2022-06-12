@@ -186,7 +186,8 @@ onMounted(() => {
     margin-bottom: 20px;
 }
 .post-section {
-    min-height: 232px;
+    padding-bottom: 12px;
+    height: max-content;
     display: flex;
     align-items: center;
     justify-content: center;

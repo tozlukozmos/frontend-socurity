@@ -120,7 +120,7 @@ onMounted(() => {
                     class="loading-delete-button" 
                     v-if="settingsPageButtonDeleteLoading" 
                     color="#F8F1E7" 
-                    backgroundColor="#ff4444"/>
+                    backgroundColor="#AF2525"/>
                     Yes, delete my account permanently.
                 </button>
                 <button 

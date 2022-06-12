@@ -25,23 +25,11 @@ export default createStore({
     plugins: [
         createPersistedState({
         storage: {
-            getItem: (key) => {
-                const now = new Date();
-                if (now.getTime() > ls.get(key).expiry) {
-					ls.remove(key);
-					return null;
-				}
-                return ls.get(key).value;
-            },
-            setItem: (key, value) => {
-                const now = new Date();
-                const item = {
-					value: value,
-					expiry: now.getTime() + 345600000, // 4 days
-				}
-				return ls.set(key, item);
-            },
-            removeItem: (key) => ls.remove(key),
+            getItem: (key) => ls.get(key),
+            setItem: (key, value) =>
+            ls.set(key, value),
+            removeItem: (key) =>
+            ls.remove(key),
         },
         }),
     ],

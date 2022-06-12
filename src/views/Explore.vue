@@ -108,7 +108,7 @@ onMounted(() => {
         type="search" 
         name="search" 
         id="search" 
-        placeholder="enter a username, a category, or a word...">
+        placeholder="enter a username, a category, or a word.">
         <span class="search-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M11.5 21C16.7467 21 21 16.7467 21 11.5C21 6.25329 16.7467 2 11.5 2C6.25329 2 2 6.25329 2 11.5C2 16.7467 6.25329 21 11.5 21Z" stroke="#E8AA33" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -178,19 +178,20 @@ onMounted(() => {
     outline: none;
 }
 .search-icon {
-    height: 100%;
+    padding-left: 8px;
     position: absolute;
+    top: 55%;
     right: 16px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    transform: translateY(-50%);
     pointer-events: none;
+    background-color: var(--light);
 }
 ::placeholder {
     font-size: 1rem;
     color: var(--dark);
     opacity: .7;
     font-weight: var(--bold);
+    text-overflow: ellipsis;
 }
 #search:focus {
     border: 2px solid var(--yellow);

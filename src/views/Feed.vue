@@ -46,7 +46,7 @@ onMounted(() => {
     <main class="main">
         <AppLoading v-if="feedPageLoading" />
         <InfoAlert v-if="feedPageInfoAlert" message="You should follow someone or 
-        publish a post to see something here. At the middle of the navigation bar you can 
+        publish a post to see something here. At the bottom-right, you can 
         see a button to create a new post. Let's do it!" />
         <AppPost 
         v-for="post in feedPagePosts" 

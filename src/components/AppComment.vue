@@ -137,7 +137,7 @@ onMounted(() => {
             <div class="delete-comment-modal-buttons">
                 <button @click="DeleteComment(post._id, comment._id)" class="delete-comment-modal-button-yes">
                     <!-- loading -->
-                    <AppLoading class="loading-button" v-if="loadingButtonComment" color="#F8F1E7" backgroundColor="#ff4444"/>
+                    <AppLoading class="loading-button" v-if="loadingButtonComment" color="#F8F1E7" backgroundColor="#AF2525"/>
                     Yes, delete my comment.
                 </button>
                 <button @click="hideDeleteModal" class="delete-comment-modal-button-no">No, turn back!</button>
