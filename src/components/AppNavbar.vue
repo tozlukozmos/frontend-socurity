@@ -8,7 +8,9 @@ onMounted(() => {
     axios.get("/notifications")
     .then(response_notifications => {
         response_notifications.data.forEach(response_notification => {
-            if(!response_notification.isRead) isUnreadNotifications.value = true 
+            if (response_notification.sender._id !== CURRENT_USER._id) {
+                if(!response_notification.isRead) isUnreadNotifications.value = true 
+            }
         });
     })
     .catch(() => {console.error})
