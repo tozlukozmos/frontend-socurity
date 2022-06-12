@@ -38,9 +38,9 @@ const Publish = () => {
                     router.push({name: "Profile"});
                 }, 600);
             })
-            .catch(() => {
+            .catch((err) => {
                 publishPageButtonLoading.value = false, 
-                console.error,
+                console.error(err),
                 publishPageErrors.value = [[], []]
             })
         } else {
