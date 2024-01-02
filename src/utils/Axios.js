@@ -2,7 +2,8 @@ import axios from "axios";
 import store from '../store/store.js';
 
 export const Axios = axios.create({
-    baseURL: "https://api-socurity.up.railway.app",
+    baseURL: "https://api-socurity.cyclic.app",
+    // baseURL: "https://api-socurity.up.railway.app",
     // baseURL: "https://api-socurity.herokuapp.com",
     // baseURL: "http://localhost:2021",
     withCredentials: false,
